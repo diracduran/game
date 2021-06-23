@@ -1,7 +1,27 @@
 .game-area {
-	.car {
-	width: 50px;
-	height: 100px;
-	background: transparent url('./images/player.png') center / cover no-repeat;
+	width: 300px;
+	height: 100%;
+	position: relative;
+	margin: auto;
+	background-color: @gray;
+	overflow: hidden;
+
+	.car,
+	.enemy {
+		width: 50px;
+		height: 100px;
+		background: transparent url('./images/player.png') center / cover no-repeat;
+		position: absolute;
+		left: 125px;
+		bottom: 10px;
 	}
+
+	.line {
+		position: absolute;
+		width: 10px;
+		height: 50px;
+		background: @white;
+		left: 145px;
+	}
+
 }
