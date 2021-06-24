@@ -134,10 +134,13 @@ function moveEnemy() {
 			carRect.right >= enemyRect.left &&
 			carRect.left <= enemyRect.right &&
 			carRect.bottom >= enemyRect.top) {
+
 			settings.start = false;
 			console.warn('дтп');
 			start.classList.remove('hide');
-			start.style.top = scores.offsetHeight;
+			scores.style.top = start.offsetHeight;
+			start.style.top = '75px';
+
 		}
 
 		item.y += settings.speed / 2;
