@@ -3,8 +3,17 @@
 const scores = document.querySelector('.scores'),
 	start = document.querySelector('.start'),
 	gameArea = document.querySelector('.game-area'),
-	car = document.createElement('div');
-	
+	car = document.createElement('div'),
+	easyLevel = document.querySelector('.easy-level'),
+	hardLevel = document.querySelector('.hard-level'),
+	veryHardLevel = document.querySelector('.very-hard-level');
+
+
+const MAX_ENEMY = 5;
+
+
+const music = new Audio('./music/01. DEUTSCHLAND.mp3')	;
+
 
 
 car.classList.add('car');
@@ -25,6 +34,31 @@ const settings = {
 	traffic: 3,
 }
 
+const getRandomEnemy = (max) => Math.floor((Math.random() * max) + 1); 
+
+
+function choodeLevel() {
+	easyLevel.classList.remove('hide');
+	hardLevel.classList.remove('hide');
+	veryHardLevel.classList.remove('hide');
+}
+
+
+function playEasy() {
+	settings.traffic = 3;
+	startGame();
+}
+
+function playHard() {
+	settings.traffic = 2;
+	startGame();
+}
+
+function playVeryHard() {
+	settings.traffic = 1;
+	startGame();
+}
+
 
 function getQuantityElements(elementHeight) {
 	return document.documentElement.clientHeight / elementHeight + 1;
@@ -32,9 +66,17 @@ function getQuantityElements(elementHeight) {
 
 
 function startGame() {
+
 	start.classList.add('hide');
 
+	easyLevel.classList.add('hide');
+	hardLevel.classList.add('hide');
+	veryHardLevel.classList.add('hide');
+
 	gameArea.innerHTML = '';
+
+
+	music.play();
 
 
 	for (let i = 0; i < getQuantityElements(100); i++) {
@@ -49,7 +91,7 @@ function startGame() {
 		const enemy = document.createElement('div');
 		enemy.classList.add('enemy');
 		enemy.y = -100 * settings.traffic * i + 1;
-		enemy.style.background = "transparent url('./images/enemy2.png') center / cover no-repeat";
+		enemy.style.background = `transparent url(./images/enemy${getRandomEnemy(MAX_ENEMY)}.png) center / cover no-repeat`;
 		enemy.style.top = enemy.y + 'px';
 		enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
 		gameArea.appendChild(enemy);
@@ -156,6 +198,10 @@ function moveEnemy() {
 }
 
 
+
+easyLevel.addEventListener("click", playEasy);
+hardLevel.addEventListener("click", playHard);
+veryHardLevel.addEventListener("click", playVeryHard);
 
 start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
