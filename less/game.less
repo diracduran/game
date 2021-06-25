@@ -7,17 +7,19 @@
 	padding: 1rem 0;
 	text-align: center;
 	z-index: 200;
-	color: @skyblue;
+	color: @black;
 	font-size: 1.5rem;
 	cursor: pointer;
 	font-family: sans-serif;
 	font-weight: 500;
-	background-color: @black;
+	background-color: @white;
+	box-shadow: 0 5px 5px -5px @carbon;
 }
 
 
 .game {
-	
+	height: 100%;
+	display: flex;
 
 	.start {
 		position: absolute;
@@ -28,9 +30,9 @@
 		padding: 2rem 0;
 		text-align: center;
 		z-index: 200;
-		color: @white;
+		color: @black;
 		font-size: 1.5rem;
-		background-color: @black;
+		background-color: @white;
 		cursor: pointer;
 		font-family: sans-serif;
 		font-weight: 700;
@@ -38,20 +40,32 @@
 
 
 	.levels {
+	    display: flex;
+    	justify-content: space-evenly;
 		position: absolute;
 		top: 85px;
 		width: 100%;
 		font-size: 1.5rem;
 		text-align: center;
 		z-index: 11111;
-		color: @skyblue;
-		cursor: pointer;
 		font-family: sans-serif;
 		font-weight: 500;
-		background-color: @black;
+		background: @white;
+		box-shadow: 0 5px 5px -5px @carbon;
 		.easy-level,
 		.hard-level {
 			margin-bottom: 0.5rem;
+		}
+		.easy-level,
+		.hard-level,
+		.very-hard-level {
+			cursor: pointer;
+			padding: 0.5rem 1rem;
+			border: none;
+			border-radius: 5px;
+			background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+			color: @white;
+		    margin-bottom: 15px;
 		}
 	}
 	

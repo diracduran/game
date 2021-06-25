@@ -135,12 +135,17 @@ table {
   padding: 1rem 0;
   text-align: center;
   z-index: 200;
-  color: skyblue;
+  color: #000;
   font-size: 1.5rem;
   cursor: pointer;
   font-family: sans-serif;
   font-weight: 500;
-  background-color: #000;
+  background-color: #fff;
+  box-shadow: 0 5px 5px -5px #333;
+}
+.game {
+  height: 100%;
+  display: flex;
 }
 .game .start {
   position: absolute;
@@ -151,29 +156,41 @@ table {
   padding: 2rem 0;
   text-align: center;
   z-index: 200;
-  color: #fff;
+  color: #000;
   font-size: 1.5rem;
-  background-color: #000;
+  background-color: #fff;
   cursor: pointer;
   font-family: sans-serif;
   font-weight: 700;
 }
 .game .levels {
+  display: flex;
+  justify-content: space-evenly;
   position: absolute;
   top: 85px;
   width: 100%;
   font-size: 1.5rem;
   text-align: center;
   z-index: 11111;
-  color: skyblue;
-  cursor: pointer;
   font-family: sans-serif;
   font-weight: 500;
-  background-color: #000;
+  background: #fff;
+  box-shadow: 0 5px 5px -5px #333;
 }
 .game .levels .easy-level,
 .game .levels .hard-level {
   margin-bottom: 0.5rem;
+}
+.game .levels .easy-level,
+.game .levels .hard-level,
+.game .levels .very-hard-level {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #020024 0%, #090979 0%, #00d4ff 100%);
+  color: #fff;
+  margin-bottom: 15px;
 }
 .game .game-area {
   width: 300px;
